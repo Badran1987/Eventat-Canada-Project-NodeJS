@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Eventat Login</title>
+    <!-- plugins:css -->
+
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  </head>
+  <body>
+   
+    <!-- Fierbase connection -->   
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const noAuth = document.getElementById("no-auth");
+        const auth = document.getElementById("auth");
+
+        firebase.auth().onAuthStateChanged(function (user) {
+          if (user) {
+            console.log("user", user);
+            firebase.auth().signOut();
+            window.location = "/login";
+          } else {
+           console.log("badran logout")
+          }
+        });
+      });
+    </script>
+    <script src="./assets/js/fierbase-key.js"></script>
+    <script src="./assets/js/App.js"></script>
+
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
